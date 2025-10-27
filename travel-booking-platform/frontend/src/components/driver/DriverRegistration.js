@@ -85,11 +85,11 @@ const DriverRegistration = () => {
     }
 
     if (!formData.vehicleNumber.trim()) {
-      newErrors.vehicleNumber = 'Vehicle number is required';
+      newErrors.vehicleNumber = 'Year of experience is required';
     }
 
     if (!formData.vehicleModel.trim()) {
-      newErrors.vehicleModel = 'Vehicle model is required';
+      newErrors.vehicleModel = 'Vehicle model preferences to drive';
     }
 
     if (formData.vehicleTypes.length === 0) {
@@ -243,13 +243,13 @@ const DriverRegistration = () => {
               </div>
 
               <div className="form-group">
-                <label>Vehicle Number *</label>
+                <label>Years of experience *</label>
                 <input
                   type="text"
                   name="vehicleNumber"
                   value={formData.vehicleNumber}
                   onChange={handleChange}
-                  placeholder="e.g., DL01AB1234"
+                  placeholder="e.g., 4"
                   className={errors.vehicleNumber ? 'error' : ''}
                 />
                 {errors.vehicleNumber && <span className="error-message">{errors.vehicleNumber}</span>}
