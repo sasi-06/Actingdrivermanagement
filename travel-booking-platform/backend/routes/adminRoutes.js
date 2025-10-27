@@ -1,0 +1,17 @@
+const express = require('express');
+const router = express.Router();
+const adminController = require('../controllers/adminController');
+const authMiddleware = require('../middleware/authMiddleware');
+const roleMiddleware = require('../middleware/roleMiddleware');
+router.use(authMiddleware, roleMiddleware('admin'));
+router.get('/drivers/pending', adminController.getPendingDrivers);
+router.post('/drivers/:id/approve', adminController.approveDriver);
+router.post('/drivers/:id/reject', adminController.rejectDriver);
+router.get('/drivers/approved', adminController.getApprovedDrivers);
+router.get('/users', adminController.getAllUsers);
+router.get('/bookings', adminController.getAllBookings);
+router.get('/stats', adminController.getDashboardStats);
+router.post('/bookings/:id/cancel', adminController.cancelBooking);
+router.get('/driver-stats/:driverId', adminController.getDriverStatsById);
+router.get('/user-stats/:userId', adminController.getUserStatsById);
+module.exports = router;

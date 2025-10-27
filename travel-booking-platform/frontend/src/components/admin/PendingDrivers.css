@@ -1,0 +1,110 @@
+/* Pending drivers styles */
+.pending-drivers {
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.pending-drivers h2 {
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.no-pending {
+  text-align: center;
+  padding: 50px;
+  color: #999;
+  font-size: 18px;
+}
+
+.drivers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 20px;
+}
+
+.driver-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  transition: box-shadow 0.3s;
+}
+
+.driver-card:hover {
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.driver-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #ddd;
+}
+
+.driver-header h3 {
+  margin: 0;
+  color: #333;
+  font-size: 20px;
+}
+
+.application-date {
+  color: #666;
+  font-size: 14px;
+}
+
+.driver-details {
+  margin-bottom: 20px;
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+  font-size: 15px;
+}
+
+.detail-row .label {
+  font-weight: 600;
+  color: #666;
+}
+
+.driver-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.driver-actions button {
+  flex: 1;
+  padding: 12px;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.approve-button {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.approve-button:hover:not(:disabled) {
+  background-color: #45a049;
+}
+
+.reject-button {
+  background-color: #f44336;
+  color: white;
+}
+
+.reject-button:hover:not(:disabled) {
+  background-color: #d32f2f;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .drivers-grid {
+    grid-template-columns: 1fr;
+  }
+}

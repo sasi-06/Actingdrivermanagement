@@ -1,0 +1,9 @@
+# Node modules
+node_modules/
+frontend/node_modules/
+
+# Optional: cache or log files
+*.log
+.cache/
+dist/
+build/

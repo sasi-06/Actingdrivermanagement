@@ -1,0 +1,114 @@
+/* Map component styles */
+.map-container {
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  background-color: white;
+}
+
+.map-instructions {
+  background-color: #4CAF50;
+  color: white;
+  padding: 15px;
+  text-align: center;
+  font-weight: 500;
+}
+
+.location-selector {
+  padding: 20px;
+  background-color: #f5f5f5;
+  overflow-y: auto;
+}
+
+.location-selector h3 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.locations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 15px;
+}
+
+.location-button {
+  padding: 15px;
+  background-color: white;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.location-button:hover:not(:disabled) {
+  border-color: #4CAF50;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.location-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.location-button.selected {
+  border-color: #4CAF50;
+  color: white;
+}
+
+.location-button.selected.pickup {
+  background-color: #4CAF50;
+}
+
+.location-button.selected.drop {
+  background-color: #2196F3;
+}
+
+.location-summary {
+  background-color: white;
+  padding: 20px;
+  border-top: 1px solid #ddd;
+}
+
+.location-item {
+  margin: 10px 0;
+  font-size: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.location-item strong {
+  color: #333;
+  margin-right: 10px;
+}
+
+.clear-btn {
+  padding: 5px 15px;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.clear-btn:hover {
+  background-color: #d32f2f;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .locations-grid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 10px;
+  }
+  
+  .location-button {
+    padding: 10px;
+    font-size: 14px;
+  }
+}

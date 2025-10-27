@@ -1,0 +1,47 @@
+/* Mini map styles */
+.mini-map-container {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  background-color: #f0f0f0;
+}
+
+.mini-map-legend {
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  display: flex;
+  gap: 15px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  z-index: 1000;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  font-weight: 500;
+}
+
+.legend-item.pickup {
+  color: #4CAF50;
+}
+
+.legend-item.drop {
+  color: #f44336;
+}
+
+/* Leaflet controls adjustment for mini map */
+.mini-map-container .leaflet-control-attribution {
+  font-size: 8px;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.mini-map-container .leaflet-control-container {
+  display: none;
+}
