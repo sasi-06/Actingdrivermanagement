@@ -24,7 +24,7 @@ export const SocketProvider = ({ children }) => {
       console.log('Initializing socket connection for user:', user.id, user.role);
       
       // Initialize socket connection
-      const newSocket = io('http://localhost:3001', {
+      const newSocket = io('https://actingdrivermanagement.onrender.com', {
         transports: ['websocket', 'polling'],
         auth: { token },
         reconnection: true,
