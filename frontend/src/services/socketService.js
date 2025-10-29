@@ -5,7 +5,11 @@ class SocketService {
   socket = null;
 
   connect(token) {
-    this.socket = io('https://actingdrivermanagement.onrender.com', {
+    // Determine backend/socket URL from env vars with sensible fallbacks
+    const backendFromApi = process.env.REACT_APP_API_URL ? process.env.REACT_APP_API_URL.replace(/\/api\/?$/i, '') : null;
+    const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || backendFromApi || 'https://actingdrivermanagement.onrender.com';
+
+    this.socket = io(BACKEND_URL, {
       auth: { token }
     });
 

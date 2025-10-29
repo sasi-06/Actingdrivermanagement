@@ -23,8 +23,12 @@ export const SocketProvider = ({ children }) => {
     if (user && token) {
       console.log('Initializing socket connection for user:', user.id, user.role);
       
+      // Initialize socket connection. Use environment variable for backend URL when available.
+      const backendFromApi = process.env.REACT_APP_API_URL ? process.env.REACT_APP_API_URL.replace(/\/api\/?$/i, '') : null;
+      const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || backendFromApi || 'https://actingdrivermanagement.onrender.com';
+
       // Initialize socket connection
-      const newSocket = io('https://actingdrivermanagement.onrender.com', {
+      const newSocket = io(BACKEND_URL, {
         transports: ['websocket', 'polling'],
         auth: { token },
         reconnection: true,

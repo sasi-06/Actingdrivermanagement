@@ -24,16 +24,37 @@ const configureSocket = require('./config/socket');
 
 const app = express();
 const server = http.createServer(app);
+// Allow frontend origin(s) to be configured via env var, with sensible dev fallbacks
+const FRONTEND_URL = process.env.FRONTEND_URL || 'http://localhost:3000';
+const allowedOrigins = [
+  FRONTEND_URL,
+  'http://localhost:3000',
+  'http://localhost:3001',
+  'https://rentngo.onrender.com',
+  'https://actingdrivermanagement.onrender.com'
+];
+
 const io = socketIO(server, {
   cors: {
-    origin: "https://rentngo.onrender.com",  // Frontend URL
+    // Accept requests from configured frontend origins (also allow no-origin requests like curl)
+    origin: (origin, callback) => {
+      if (!origin) return callback(null, true);
+      if (allowedOrigins.includes(origin)) return callback(null, true);
+      return callback(new Error('CORS not allowed by socket.io'));
+    },
     credentials: true
   }
 });
 
 // Middleware - Update CORS to accept requests from frontend on port 3000
+// Express CORS middleware: allow the same set of origins as socket.io
 app.use(cors({
-  origin: "https://rentngo.onrender.com",  // This should be your frontend URL
+  origin: (origin, callback) => {
+    // If no origin (e.g., curl, mobile apps), allow. Otherwise validate against allowedOrigins.
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.includes(origin)) return callback(null, true);
+    return callback(new Error('CORS not allowed by backend'));
+  },
   credentials: true
 }));
 app.use(express.json());
