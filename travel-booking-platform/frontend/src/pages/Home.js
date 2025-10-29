@@ -38,8 +38,8 @@ const Home = () => {
         <div className="features-grid">
           <div className="feature-card">
             <div className="feature-icon">🚗</div>
-            <h3>Multiple Vehicle Options</h3>
-            <p>Choose from cars, autos, or vans based on your needs</p>
+            <h3>Multiple Vehicle based Options for driver</h3>
+            <p>Choose driver for cars, autos, or vans based on your needs</p>
           </div>
           <div className="feature-card">
             <div className="feature-icon">✅</div>
