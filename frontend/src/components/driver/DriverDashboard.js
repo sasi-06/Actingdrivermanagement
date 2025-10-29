@@ -43,40 +43,38 @@ const DriverDashboard = () => {
   return (
     <div className="driver-dashboard">
       <Notification userId={user.id} userRole="driver" />
-      
+
       <div className="dashboard-sidebar">
         <h3>Driver Menu</h3>
-        
-        // In the DriverDashboard component, update the availability toggle section:
 
-<div className={`availability-toggle ${isAvailable ? 'online' : ''}`}>
-  <label className="switch">
-    <input
-      type="checkbox"
-      checked={isAvailable}
-      onChange={toggleAvailability}
-    />
-    <span className="slider"></span>
-  </label>
-  <span>{isAvailable ? '🟢 Available for rides' : '🔴 Offline'}</span>
-</div>
+        <div className={`availability-toggle ${isAvailable ? 'online' : ''}`}>
+          <label className="switch">
+            <input
+              type="checkbox"
+              checked={isAvailable}
+              onChange={toggleAvailability}
+            />
+            <span className="slider"></span>
+          </label>
+          <span>{isAvailable ? '🟢 Available for rides' : '🔴 Offline'}</span>
+        </div>
 
 
         <nav className="dashboard-nav">
-          <Link 
-            to="/driver" 
+          <Link
+            to="/driver"
             className={location.pathname === '/driver' ? 'active' : ''}
           >
             New Requests
           </Link>
-          <Link 
-            to="/driver/accepted" 
+          <Link
+            to="/driver/accepted"
             className={location.pathname === '/driver/accepted' ? 'active' : ''}
           >
             Accepted Bookings
           </Link>
-          <Link 
-            to="/driver/history" 
+          <Link
+            to="/driver/history"
             className={location.pathname === '/driver/history' ? 'active' : ''}
           >
             Trip History
