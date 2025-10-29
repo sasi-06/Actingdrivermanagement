@@ -26,14 +26,14 @@ const app = express();
 const server = http.createServer(app);
 const io = socketIO(server, {
   cors: {
-    origin: "http://localhost:3000",  // Frontend URL
+    origin: "https://rentngo.onrender.com",  // Frontend URL
     credentials: true
   }
 });
 
 // Middleware - Update CORS to accept requests from frontend on port 3000
 app.use(cors({
-  origin: "http://localhost:3000",  // This should be your frontend URL
+  origin: "https://rentngo.onrender.com",  // This should be your frontend URL
   credentials: true
 }));
 app.use(express.json());
